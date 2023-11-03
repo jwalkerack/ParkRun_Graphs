@@ -1,0 +1,36 @@
+{% include "run/index.html" %}
+{% load static %}
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+{% block content %}
+
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-6">
+      <h1 class="text-center">About Park Run</h1>
+      <p>Park Run is a free, weekly, timed 5K run that takes place in local parks all over the world. The first event took place in Bushy Park, London in October 2004, and since then it has grown to become a global phenomenon, with over 18 million participants in 21 countries.
+      </p>
+      <p>
+        Park Run is open to all abilities and ages, and it's an event that promotes health and well-being, as well as community spirit. In the UK alone, it has grown to become one of the most popular mass participation events, with over 2 million registered runners.
+      </p>
+      <p>
+        The goal of this website is to allow users to learn about park run events by providing summary data and statistics. The data and information provided on this website is for learning and educational purposes only and is not intended for commercial use.
+      </p>
+      <p>
+        One of the great things about Park Run is that it encourages people who have never run before to give it a try. Whether you're a seasoned runner or just starting out, Park Run is a fun, supportive environment where anyone can get involved and experience the benefits of regular exercise.
+</p>
+    </div>
+    <div class="col-md-6">
+      <img src="{% static 'runner.jpg' %}" class="img-fluid" alt="park run event">
+    </div>
+  </div>
+  <div class="my-5">
+    <h2 class="text-center">Park Runs in Scotland</h2>
+    <p>The first Park Run event in Scotland took place in Bellahouston Park, Glasgow in September 2011 and since then it has grown to include over 50 events across the country, with thousands of participants every week. Famous runners from Scotland include Jocelyn Wild, who holds the Scottish record for the fastest time in the 5K event, and Mark Munro, who holds the record for the most Park Run events completed.</p>
+    <p> Scotland also plays host to other mass participation runs such as Great Scottish Run and the Edinburgh Marathon which are popular among runners all over the country.</p>
+  </div>
+</div>
+
+{% endblock %}

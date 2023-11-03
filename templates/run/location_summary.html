@@ -1,0 +1,33 @@
+{% include "run/index.html" %}
+
+{% block content %}
+
+
+    <p style="text-align:center"><br> Overview of Scottish Parkruns<br></p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Location</th>
+                <th>Total Races</th>
+                <th>Total Runners</th>
+                <th>Total Runs</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in location_data %}
+                <tr>
+                    <td><a href="{% url 'event_summary' data.location_id %}">{{ data.name }}</a></td>
+                    <td>{{ data.event_count }}</td>
+                    <td>{{ data.runner_count }}</td>
+                    <td>{{ data.total_runs }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+
+
+
+

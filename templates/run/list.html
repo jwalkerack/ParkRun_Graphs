@@ -1,0 +1,16 @@
+{% extends "base_bootstrap.html" %}
+{% block content %}
+<h1>Scottish Races</h1>
+<p>
+{% if running_list %}
+<ul>
+  {% for race in running_list %}
+    <li>
+        <a href="{% url 'run:race_detail'  race.id %}">{{ race.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+{% else %}
+  <p>There are currently now races listed.</p>
+{% endif %}
+{% endblock %}

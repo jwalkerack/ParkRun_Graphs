@@ -1,0 +1,18 @@
+<header style="background-color: #F0F8FF;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="{% static 'logo.png' %}" alt="Company logo">
+      </div>
+      <div class="col-md-8">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation"><a href="{% url 'location_summary' %}">Home</a></li>
+            <li role="presentation"><a href="{% url 'location_summary' %}">Events</a></li>
+            <li role="presentation"><a href="{% url 'location_summary' %}">Analysis</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>

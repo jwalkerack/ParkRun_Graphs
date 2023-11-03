@@ -1,0 +1,28 @@
+{% include "run/index.html" %}
+{% load static %}
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+{% block content %}
+    <h1>{{ location.Name }}</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Event Id</th>
+                <th>Races</th>
+                <th>Run Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in event_data %}
+                <tr>
+                    <td><a href="{% url 'event_details' data.location_id data.event_id   %}">{{ data.event_number }}</a></td>
+                    <td>{{ data.runner_count }}</td>
+                    <td>{{ data.date }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+
+

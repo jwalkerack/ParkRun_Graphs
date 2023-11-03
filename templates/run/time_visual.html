@@ -1,0 +1,67 @@
+{% include "run/index.html" %}
+{% load static %}
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'style2.css' %}">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+{% block content %}
+
+
+<p>Analysis personal best. Each datapoint represents a runners PB at an event</p>
+
+<div class="d-flex justify-content-between">
+    <div class="form-box border border-primary p-3 bg-light" style="width: 25%; border-radius: 30px;">
+        <h6 class="text-center mb-4" style="font-weight: bold;">PB Histogram</h6>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group1 mb-2">
+                <label for="{{ form.location.id_for_label }}" style="font-weight: bold;">Select a Location:</label>
+                <div class="location-select" style="display: grid; grid-template-columns: repeat(1, 2fr); grid-gap: 10px;">
+                    {{ form.location }}
+                </div>
+            </div>
+            <div class="form-group1 mb-2">
+                <label for="{{ form.start.id_for_label }}" style="font-weight: bold;">Data from Year:</label>
+                {{ form.start }}
+            </div>
+            <div class="form-group1 mb-2">
+                <label for="{{ form.end.id_for_label }}" style="font-weight: bold;">Data To Year:</label>
+                {{ form.end }}
+            </div>
+
+            <div class="form-group1 mb-2">
+                <label for="{{ form.bin.id_for_label }}" style="font-weight: bold;">How many bins would you like:</label>
+                {{ form.bins }}
+            </div>
+            <div class="form-group1 mb-2">
+                <h6>Filter out times below :</h6>
+                <label for="{{ form.low_hours.id_for_label }}" style="font-weight: bold; display: inline-block;">Hours:</label>
+                {{ form.low_hours}}
+                <label for="{{ form.low_minutes.id_for_label }}" style="font-weight: bold; display: inline-block; margin-left: 20px;">Minutes:</label>
+                {{ form.low_minutes }}
+                <label for="{{ form.low_seconds.id_for_label }}" style="font-weight: bold; display: inline-block; margin-left: 20px;">Seconds:</label>
+                {{ form.low_seconds}}
+            </div>
+            <div class="form-group1 mb-2">
+                <h6>Filter out times Above :</h6>
+                <label for="{{ form.high_hours.id_for_label }}" style="font-weight: bold; display: inline-block;">Hours:</label>
+                {{ form.high_hours}}
+                <label for="{{ form.high_minutes.id_for_label }}" style="font-weight: bold; display: inline-block; margin-left: 20px;">Minutes:</label>
+                {{ form.high_minutes }}
+                <label for="{{ form.high_seconds.id_for_label }}" style="font-weight: bold; display: inline-block; margin-left: 20px;">Seconds:</label>
+                {{ form.high_seconds}}
+            </div>
+            <div class="form-group1 mb-2">
+                <button type="submit" class="btn btn-primary">Create</button>
+            </div>
+        </form>
+    </div>
+        <div class="timings-data-box" style="width: 70%;">
+        {{ data|safe }}
+    </div>
+</div>
+ {{ dataframe|safe }}
+
+{% endblock %}

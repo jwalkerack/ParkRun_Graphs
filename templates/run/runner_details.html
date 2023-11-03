@@ -1,0 +1,39 @@
+{% include "run/index.html" %}
+{% load static %}
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+{% block content %}
+    <h1>{{yy.Name}}</h1>
+
+    <table style="border-collapse: collapse; width: 50%;">
+            <thead style="background-color: #ddd;">
+                <tr>
+                    <th style="padding: 8px; border: 1px solid #ddd;">Race</th>
+                    <th style="padding: 8px; border: 1px solid #ddd;">Race Date</th>
+                    <th style="padding: 8px; border: 1px solid #ddd;">Race Number</th>
+                    <th style="padding: 8px; border: 1px solid #ddd;">Position</th>
+                    <th style="padding: 8px; border: 1px solid #ddd;">Time</th>
+                    <th style="padding: 8px; border: 1px solid #ddd;">Club</th>
+                    <th style="padding: 8px; border: 1px solid #ddd;">Group</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in runner_data %}
+                <tr>
+                    <td style="padding: 8px; border: 1px solid #ddd;">{{ data.Location }}</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">{{ data.RunDate }}</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">{{ data.EventNum}}</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">{{ data.position}}</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">{{ data.time}}</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">{{ data.club}}</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">{{ data.group}}</td>
+                </tr>
+            {% endfor %}
+    </table>
+
+
+
+{% endblock %}
+
+
